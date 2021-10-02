@@ -1,0 +1,128 @@
+================ About.js ===========
+import React from 'react';
+
+const About = () => {
+    return (
+        <div className="container">
+            <div className="py-4">
+        <h1>About</h1>
+            </div>
+        </div>
+    );
+};
+
+export default About;
+
+
+============= Home.js ============
+import React from 'react';
+
+const Home = () => {
+    return (
+        <div className="container">
+            <div className="py-4">
+        <h1>Home</h1>
+            </div>
+        </div>
+    );
+};
+
+export default Home;
+
+
+============= Contact.js ==========
+import React from 'react';
+
+const Contact = () => {
+    return (
+        <div className="container">
+            <div className="py-4">
+        <h1>Contact</h1>
+            </div>
+        </div>
+    );
+};
+
+export default Contact;
+
+=========== App.js ==========
+
+import './App.css';
+import "../node_modules/bootstrap/dist/css/bootstrap.css"
+import Home from "./components/pages/Home"
+import About from './components/pages/About';
+import Contact from './components/pages/Contact';
+import Navbar from './components/layout/Navbar';
+import {
+	BrowserRouter as Router,
+	Route,
+	Link,
+	Switch
+} from 'react-router-dom';
+
+
+function App() {
+  return (
+    <div>
+    <Router>
+    <Navbar/>
+
+    <Switch>
+    <Route exact path="/" component={Home} />
+    <Route exact path="/about" component={About} />
+    <Route exact path="/contact" component={Contact} />
+    
+    
+    </Switch>
+    
+    
+
+    </Router>
+
+      
+    </div>
+  );
+}
+
+export default App;
+
+
+====================== Navbar.js=================
+import React from 'react';
+import {
+	BrowserRouter as Router,
+	Route,
+	Link, NavLink,
+	Switch
+} from 'react-router-dom';
+
+const Navbar = () => {
+    return (
+        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div className="container">
+        <Link className="navbar-brand" to="/">React User</Link>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+      
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item">
+              <NavLink className="nav-link" exact to="/">Home </NavLink>
+            </li>
+            <li class="nav-item">
+              <NavLink className="nav-link" exact to="/about">About</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" exact to="/contact">Contact</NavLink>
+            </li>
+            
+          </ul>
+          
+        </div>
+        </div>
+      </nav>
+    );
+};
+
+export default Navbar;

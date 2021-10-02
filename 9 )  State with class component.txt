@@ -1,0 +1,21 @@
+=============== User.js============
+
+import React , {Component} from "react";
+
+class User extends React.Component{
+
+    constructor(){
+        super();
+        this.state ={
+            data:"sachin"
+        }
+    }
+    render(){
+        return(
+            <h1>{this.state.data}</h1>
+        )
+    }
+
+}
+
+export default User;

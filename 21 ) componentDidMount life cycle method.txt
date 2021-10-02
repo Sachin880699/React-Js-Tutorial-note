@@ -1,0 +1,37 @@
+component did mount teva load hoil jeve html sagla purn load hoil
+
+
+
+======== user.js =======
+
+
+
+import React from "react";
+
+
+class User extends React.Component{
+    constructor()
+    {
+        super()
+        this.state = {
+            data:"Sachin"
+        }    
+    }
+    componentDidMount()
+    {
+        console.warn("COmponet did mountt")
+    }
+    render()
+    {
+        return(
+            <div>
+            <h1>User {this.state.data}</h1>
+            <button onClick={()=>{this.setState({data:"Pawar"})}}>Update</button>
+            </div>
+        )
+    }
+}
+
+
+
+export default User

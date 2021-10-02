@@ -1,0 +1,42 @@
+============ Student.js==========
+
+import React from "react";
+
+class Student extends React.Component{
+    render(){
+        return(
+            <h1>{this.props.firstname} {this.props.lastname}</h1>
+        )
+    }
+}
+export default Student;
+
+
+
+=============== another one is===
+
+
+import React, { useState } from "react";
+
+
+function Student(props){
+
+    const [data , Output] = useState(props.firstname)
+
+    function Change(){
+        Output(props.lastname)
+    }
+
+    return(
+        <div >
+        <h1>{data}</h1>
+        <button onClick={Change}>CLICK ON ME</button>
+        </div>
+
+    )
+}
+
+
+export default Student;
+
+

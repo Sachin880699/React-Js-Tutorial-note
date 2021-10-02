@@ -1,0 +1,30 @@
+============= App.js =========
+
+import './App.css';
+import Student from "./components/Student"
+
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+      <Student firstname = "sachin" surname = "pawar" />
+      </header>
+    </div>
+  );
+}
+export default App;
+
+--------- Student.js----------------
+
+import reactDom from "react-dom";
+function Student(props){
+    return(
+        <div style = {{color:"red"}}>
+        <h1>{props.firstname} {props.surname}</h1>
+        </div>
+    )
+}
+export default Student;
+
+
+

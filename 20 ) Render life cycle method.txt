@@ -1,0 +1,19 @@
+
+import './App.css';
+import User from "./component/User"
+import React from "react";
+
+function App() {
+  
+  const [name , setName] = React.useState("Sachin")
+  
+  return (
+    <div className="App">
+    <User name={name}/>
+    <button onClick={()=>setName("Sagar")}>Update Name</button>
+    </div>
+  );
+}
+
+export default App;
+

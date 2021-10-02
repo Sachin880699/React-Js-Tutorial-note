@@ -1,0 +1,38 @@
+============= User.js ==============
+
+import React from "react";
+import {Table} from "react-bootstrap";
+
+function User(){
+    const student = [
+        {name:"sachin",email:"sachin@test.in",mobile:"7620860053"},
+        {name:"tushar",email:"tushar@test.in",mobile:"8806995906"},
+        {name:"vaibhav",email:"vaibhav@test.in",mobile:"9730668654"}
+    ]
+    return(
+        <div>
+
+        <Table striped bordered hover>
+        <tbody>
+        <tr>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Contact</td>
+            </tr>
+        {
+            student.map((i,index)=>
+            <tr key={index}>
+                <td>{i.name}</td>
+                <td>{i.email}</td>
+                <td>{i.mobile}</td>
+            </tr>
+            )
+        }
+        </tbody>
+        </Table>
+            
+        </div>
+    )
+}
+
+export default User;

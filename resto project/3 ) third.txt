@@ -1,0 +1,35 @@
+============= AddCourse.js ========
+
+import React from 'react';
+import { Button, Form, FormGroup, Label, Input, FormText, Container } from 'reactstrap';
+
+
+const AddCourse = () => {
+    return (
+        <div>
+        <h1 className="text-center my-3">Fill Course Detail</h1>
+            <Form>
+            <FormGroup>
+                <lable for="userid">Course Id</lable>
+                <Input type="text" placeholder="Enter here" name="userid" id="userId" />
+            </FormGroup>
+            <FormGroup>
+                <lable for="title">Course Title</lable>
+                <Input type="text" placeholder="Enter title" name="title" id="title" />
+            </FormGroup>
+
+            <FormGroup>
+                <lable for="title">Course Description</lable>
+                <Input type="textarea" placeholder="Enter Description" name="description" id="description" />
+            </FormGroup>
+            <Container className="text-center">
+                <Button color="primary">Add Course</Button>
+                <Button color="warning ml-2">Clear</Button>
+            </Container>
+
+            </Form>
+        </div>
+    );
+};
+
+export default AddCourse;

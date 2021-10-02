@@ -1,0 +1,28 @@
+======== App.js =========
+
+
+
+import './App.css';
+import User from "./component/User"
+import React from "react";
+
+
+class App extends React.Component{
+  constructor()
+  {
+    super();
+    this.state ={
+      data:"Sachin"
+    }
+  }
+  render()
+  
+  {
+    return(
+      <h1>Hello World {this.state.data}</h1>
+    )
+  }
+}
+
+export default App;
+

@@ -1,0 +1,31 @@
+======== app.js ===========
+
+<User age={20}  name={"sachin"}/>
+
+
+
+
+=========== user.js =========
+
+import React from "react";
+import PropTypes from "prop-types";
+class User extends React.Component{
+    render() {
+      return (
+          <div>
+        <h1>Hello, {this.props.age}</h1>
+        <h1>Hello, {this.props.name}</h1>
+        
+        </div>
+      );
+    }
+  }
+  
+  User.propTypes = {
+    age: PropTypes.number
+  };
+  User.propTypes = {
+    name: PropTypes.number
+  };
+
+export default User

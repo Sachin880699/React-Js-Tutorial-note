@@ -1,0 +1,37 @@
+uncontrolled component mhanje apan form chi value direct get karto without state tyala mhantat
+
+
+import {Button , Modal} from "react-bootstrap";
+import React, { useEffect, useState , PureComponent } from "react";
+
+
+class User extends React.Component{
+  constructor(){
+    super()
+    this.name=React.createRef();
+    this.password=React.createRef();
+    
+  }
+
+submitHandle(event){
+  event.preventDefault()
+console.warn(this.name.current.value)
+console.warn(this.password.current.value)
+}
+
+  render(){
+    return(
+      <div>
+
+<form onSubmit={(event)=>{this.submitHandle(event)}}>
+<input type="text" ref={this.name} placeholder="Name" /><br/>
+<input type="password" ref={this.password} placeholder="Password" /><br/>
+
+<button type="submit">submit</button>
+</form>
+      </div>
+    )
+  }
+}
+
+export default User

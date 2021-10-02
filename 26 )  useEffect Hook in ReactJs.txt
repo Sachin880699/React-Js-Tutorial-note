@@ -1,0 +1,26 @@
+============= user.js ===============
+
+
+jeva pan state update hoil teva pan useffect call hoil
+
+
+
+import React, { useEffect, useState } from "react";
+
+
+function User(){
+    const [count , setCount] = useState(0)
+
+    React.useEffect(()=>{
+        console.warn("Use Effect")
+    })
+    
+    return(
+
+        <div>
+            <h1>HI {count}</h1>
+            <button onClick={()=>setCount(count+1)}>Update Counter</button>
+        </div>
+    )
+}
+export default User

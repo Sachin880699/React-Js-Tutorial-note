@@ -1,0 +1,23 @@
+================== app.js=========
+
+import logo from './logo.svg';
+import './App.css';
+
+function App() {
+  function Apple(){
+    alert("Function Call")
+  }
+  return (
+    <div className="App">
+   
+     <button onClick={Apple} >Clic Me</button>
+    </div>
+  );
+}
+
+export default App;
+
+
+============================== direct function call= arro function
+
+ <button onClick={()=> alert("hello")}>Click On Me</button>

@@ -1,0 +1,85 @@
+============== App .js ======
+
+Parent to child data
+
+
+
+import logo from './logo.svg';
+import './App.css';
+import User from "./components/User"
+
+
+function App() {
+  let data="Sachin Pawar"
+  return (
+    <div className="App">
+      <User name = {data}/>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+=============== User.js =============
+import { Button } from 'react-bootstrap'
+import React from "react";
+
+function User(props) {
+   const data = "Sachin Pawar"
+  return (
+     <div>
+         <h2>User Name {props.name}</h2>
+         <Button >CLICK ME</Button>
+     </div> 
+  )
+}
+
+export default User;
+
+
+
+
+=============================================
+================= Child to parent data=========
+
+
+
+
+===========user.js==============
+import { Button } from 'react-bootstrap'
+import React from "react";
+
+function User(props) {
+    const data="Sachin Pawar"
+  return (
+     <div>
+         <h2>User Name</h2>
+         <Button onClick={()=>props.alert(data)}>CLICK ME</Button>
+     </div> 
+  )
+}
+
+export default User;
+
+
+================== App.js =======================
+import logo from './logo.svg';
+import './App.css';
+import User from "./components/User"
+
+
+function App() {
+function parentAlert(data){
+  alert(data)
+}
+  return (
+    <div className="App">
+      <User alert={parentAlert}/>
+    </div>
+  );
+}
+
+export default App;
+

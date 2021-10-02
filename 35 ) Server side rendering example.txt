@@ -1,0 +1,25 @@
+========== create app ====
+1 ) npx create-react-app app-ssr
+
+
+the first change in src/index.js open karun render chay jagi (  hydrate  ) karaych
+
+other steps are below link
+
+https://github.com/anil-sidhu/react-ssr-with-routing
+
+
+
+
+
+create folder server  name jase src , public ahe tase 
+ani copy github code in server.js file madhe
+
+then copy next code in index.js file
+
+then run next command
+
+
+
+npm run build
+

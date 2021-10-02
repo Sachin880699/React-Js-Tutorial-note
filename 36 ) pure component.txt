@@ -1,0 +1,57 @@
+=== jas ki normal madhe kay hot akda render zal ani button var click kel tar te punha punha render hot pan pure component madhe akda render zal tar te punha render hote nahi
+
+============= normal example =========
+import {Button , Modal} from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+
+
+class User extends React.Component{
+  constructor(){
+    super()
+    this.state = {
+      data:10
+    }
+  }
+  render(){
+    console.warn(this.state)
+    return(
+      <div>
+        <h1>Pure Component{this.state.data}</h1>
+        <button onClick={()=>{this.setState({data:10})}}>Update State</button>
+      </div>
+    )
+  }
+}
+
+export default User
+
+
+
+
+
+=======================  pure component ======================
+
+
+import {Button , Modal} from "react-bootstrap";
+import React, { useEffect, useState , PureComponent } from "react";
+
+
+class User extends React.PureComponent{
+  constructor(){
+    super()
+    this.state = {
+      data:10
+    }
+  }
+  render(){
+    console.warn(this.state)
+    return(
+      <div>
+        <h1>Pure Component{this.state.data}</h1>
+        <button onClick={()=>{this.setState({data:10})}}>Update State</button>
+      </div>
+    )
+  }
+}
+
+export default User

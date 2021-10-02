@@ -1,0 +1,30 @@
+ya madhe apan state barobar form chi value get karto
+
+
+import React from "react";
+
+class User extends React.Component{
+  constructor(){
+    super()
+    this.state = {
+      name:"",
+      passsword:""
+    }
+  }
+  submit()
+  {
+    console.warn(this.state)
+  }
+  render(){
+    return(
+      <div>
+        <h1>Controoled Component</h1>
+        <input type="text" placeholder="Enter Name" onChange={(event)=>{this.setState({name:event.target.value})}} /><br/>
+        <input type="password" placeholder="Enter Password" onChange={(event)=>{this.setState({password:event.target.value})}} /><br/>
+      <button onClick={()=>{this.submit()}}>SUBMIT</button>
+      </div>
+    )
+  }
+}
+
+export default User

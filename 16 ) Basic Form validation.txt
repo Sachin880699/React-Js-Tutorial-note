@@ -1,0 +1,38 @@
+============ Login.js ============
+
+import React, { useState } from "react";
+
+function Login(){
+    const [user , setUser] = useState(false)
+    const [password , setPassword] = useState("")
+    const [userErr , setUserErr] = useState(false)
+ function LoginForm(e)
+    {
+        alert("Hello")
+        e.preventDefault()
+    }
+    function userHandler(e){
+        console.warn(e.target.value.length)
+        if(e.target.value.length < 3){
+            setUserErr(true)
+        }
+        else
+        {
+            setUserErr(false)
+        }
+
+    }
+    return(
+        <form onSubmit = {LoginForm}>
+            <input type="text" onChange={userHandler} placeholder="enter User Id" />{userErr?<span>User Not Valud</span>:""}
+            
+
+            <br/><br/>
+            <input type="text" placeholder="enter password" />
+            <br/><br/>
+            <button type="submit">LOGIN</button>
+        </form>
+    )
+}
+
+export default Login

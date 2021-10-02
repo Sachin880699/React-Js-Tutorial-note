@@ -1,0 +1,29 @@
+=========== user.js ============
+
+import React, { useState } from "react"
+
+
+ function DeleteStudent(delete_student) {
+     alert(delete_student)
+     fetch("http://192.168.43.79:8000/DeleteStudent",{
+            method:"DELETE",
+            headers:{
+                "Accept":"application/json",
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({delete_student})
+        }).then((result)=>{
+            // console.warn(result)
+            result.json().then((resp)=>{
+                console.warn(resp)
+            })
+        })
+     
+ }
+
+
+
+
+
+
+<button onClick ={()=>DeleteStudent(item.id)} >Delete</button>

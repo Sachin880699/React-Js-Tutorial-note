@@ -1,0 +1,7 @@
+1 ) is any Alternative for npm
+2 ) diffrent between package.json and package.lock.json
+3 ) important file of 
+4 ) what is function
+5 ) type of component
+6 ) what is function component and class component
+

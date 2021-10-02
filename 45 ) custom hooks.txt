@@ -1,0 +1,31 @@
+============== User.js ==============
+import React, { useEffect, useState } from "react";
+import useTitle from './useTitle'
+
+const User = () =>{
+    const [count , setCount] = useState(0)
+    useTitle(count)
+
+    return(
+        <div>
+            <h1>Custom Hooks</h1>
+            <button onClick={()=>setCount(count+1)}>CLICK</button>
+        </div>
+    )
+}
+
+export default User
+
+
+========== useTitle.js ==============
+
+import React, { useEffect, useState } from "react";
+
+
+const useTitle = (props) =>{
+    useEffect(()=>{
+        document.title = props +"this is button"
+    })
+}
+
+export default useTitle

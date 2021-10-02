@@ -1,0 +1,19 @@
+============ Student.js==========
+
+import React, { useState } from "react";
+
+function Student(){
+    const [data , setData] = useState(null)
+    function Output(val){
+        setData(val.target.value);
+    }
+    return(
+        <div>
+            <h1>{data}</h1>
+
+            <input type="text" onChange={Output} />
+        </div>
+
+    )
+}
+export default Student;

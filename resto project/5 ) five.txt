@@ -1,0 +1,75 @@
+====================== App.js ==============
+import logo from './logo.svg';
+import './App.css';
+import { Button, Container , Row , Col } from 'reactstrap';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Home from "./components/Home"
+import Allcourses from './components/Allcourses';
+import AddCourse from "./components/AddCourse"
+import Header from "./components/Header"
+import Menus from "./components/Menus"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+function App() {
+  const btnHandle = () => toast.success("This is my frst message !");
+  return (
+    <div >
+<Router>
+<ToastContainer/>
+<Container>
+<Header/>
+  <Row>
+    <Col md={4}>
+      <Menus/>
+    </Col>
+    <Col md={8}>
+    <Route path="/" component={Home} exact />
+    <Route path="/add-course" component={AddCourse} exact />
+    <Route path="/view-courses" component={Allcourses} exact />
+
+     </Col>
+  </Row>
+</Container>
+
+</Router>
+
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+
+======================  Munus.js ==============
+import React from 'react';
+import { ListGroup, ListGroupItem, Badge } from 'reactstrap';
+import {
+    BrowserRouter as Router,
+
+    Link
+  } from "react-router-dom";
+
+const Menus = () => {
+    return (
+        <div>
+            <ListGroup>
+            <Link className="list-group-item list-group-item-action" tag="a" to="/" action>Home</Link>
+            <Link className="list-group-item list-group-item-action" tag="a" to="/add-course" action>Add Course</Link>
+            <Link className="list-group-item list-group-item-action" tag="a" to="/view-courses" action>View Course</Link>
+            <Link className="list-group-item list-group-item-action" tag="a" to="#!">About Course</Link>
+            <Link className="list-group-item list-group-item-action" tag="a" to="#!">Contact Us</Link>
+            </ListGroup>
+        </div>
+    );
+};
+
+export default Menus;

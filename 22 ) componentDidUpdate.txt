@@ -1,0 +1,36 @@
+==============user.js ======
+
+
+import React from "react";
+
+
+class User extends React.Component{
+    constructor(){
+        super()
+        console.warn("Component DId Update 1")
+        this.state = {
+            count:0
+        }
+    }
+    componentDidUpdate(preProps , preState , snapshot)
+    {
+        console.warn("Component Did Update 2",preState.count , this.state.count)
+        if(preState.count === this.state.count)
+        {
+            alert("data is already same")
+        }
+    }
+    render()
+    {
+        console.warn("ComponentDidUpdate 3")
+
+        return(
+            <div>
+                <h1>Hello {this.state.count}</h1>
+                <button onClick={()=>{this.setState({count:1})}}>Update</button>
+            </div>
+        )
+    }
+}
+
+export default User;

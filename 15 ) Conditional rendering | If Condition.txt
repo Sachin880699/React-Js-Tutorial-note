@@ -1,0 +1,37 @@
+======== student.js =======
+
+
+import React, { useState } from "react";
+
+function Student(){
+
+    const [loggedIn , SetLogin] = useState(false)
+
+    return(
+        <div>
+            {loggedIn?<h1>Welcome</h1>:<h1>Not Welcome</h1>}
+        </div>
+    )
+}
+
+export default Student
+
+
+
+
+============== Ani jar multiple conditioin aslyavar
+
+import React, { useState } from "react";
+
+function Student(){
+    const [login , setLogin] = useState(2)
+
+    return(
+        <div>
+            {login==1?<h1>Wlcome User one</h1>
+            :login==2?<h1>Welcome Uer two</h1>
+            :<h1>Welcome Gest</h1>}
+        </div>
+    )
+}
+export default Student;

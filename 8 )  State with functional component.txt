@@ -1,0 +1,29 @@
+1 ) what is state
+
+============== App.js=============
+// import logo from './logo.svg';
+import './App.css';
+import Reaact ,{useState} from "react";
+
+function App() {
+  
+
+  const [data , setData] = useState("sachin")
+  function updateData(){
+    setData("pawar")
+  }
+
+  return (
+    <div className="App">
+    <h1>{data}</h1>
+
+    <button onClick={updateData}>Click On Me</button>
+   
+
+     
+    </div>
+  );
+}
+
+export default App;
+

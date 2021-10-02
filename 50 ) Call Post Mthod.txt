@@ -1,0 +1,45 @@
+=========== user.js ============
+
+import React, { useState } from "react"
+
+
+function User(){
+    const [roll_no , setRollNo] = useState("")
+    const [first_name , setFirstName] = useState("")
+    const[last_name , setLastName] = useState("")
+
+    function saveStudent()
+    {
+        console.warn(roll_no , first_name , last_name)
+        fetch("http://192.168.43.79:8000/AddStudent",{
+            method:"POST",
+            headers:{
+                "Accept":"application/json",
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({roll_no , first_name , last_name})
+        }).then((result)=>{
+            // console.warn(result)
+            result.json().then((resp)=>{
+                console.warn(resp)
+            })
+        })
+        
+    }
+
+    return(
+        <div >
+<br/><br/>
+        <input type="text" value={roll_no} onChange={(e)=>setRollNo(e.target.value)} name="roll_no" /><br/><br/>
+        <input type="text" value={first_name} onChange={(e)=>setFirstName(e.target.value)} name="first_name" /><br/><br/>
+        <input type="text" value={last_name} onChange={(e)=>setLastName(e.target.value)} name="last_name" /><br/><br/> 
+
+        <button onClick={saveStudent} type="button">Save User</button>
+
+
+
+        </div>
+    )
+}
+
+export default User

@@ -1,0 +1,20 @@
+============= user.js ===============
+
+
+import React, { useState } from "react";
+
+
+function User(){
+    const [name , setName] = useState("Sachin")
+    function Update(){
+        setName("Pawar")
+    }
+    return(
+
+        <div>
+            <h1>HI {name}</h1>
+            <button onClick={Update}>Update</button>
+        </div>
+    )
+}
+export default User

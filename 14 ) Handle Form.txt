@@ -1,0 +1,31 @@
+import React,{useState} from "react";
+
+
+function Stuudent(){
+    const [name , setName ]= useState("")
+    const [tnc , setTnc ]= useState(false)
+    const [intrest , setIntrest ]= useState("")
+
+    function getFormData(e){
+        console.warn(name , tnc , intrest)
+        e.preventDefault()
+    }
+    return(
+        <form onSubmit={getFormData}>
+        <input type="text" onChange={(e)=>setName(e.target.value)} placeholder="enter name" />
+
+        <br/>
+        <br/>
+        <select onChange={(e)=>setIntrest(e.target.value)}>
+            <option>First</option>
+            <option>Second</option>
+        </select>
+        <input onChange={(e)=>setTnc(e.target.value)} type="checkbox"/>
+        <br/>
+        <br/>
+        <button type="submit">submit</button>
+    </form>
+    )
+}
+
+export default Stuudent;

@@ -1,0 +1,70 @@
+============= user.js ===============
+
+
+
+import React from "react";
+import {Button} from "react-bootstrap"
+
+
+function User(){
+    const student =["sachin",'sagar','vaibhav','rahul']
+    // student.map((item)=>{
+    //     console.warn(item)
+    // })
+    // for(let i=0;i<student.length;i++){
+    //     console.warn("In FOr Loop ",student[i])
+    // }
+
+    return(
+        <div>
+            <h1>Sachin</h1>
+            
+            {
+                student.map((data)=>
+                <h1>{data}</h1>
+                )
+            }
+        </div>
+    )
+}
+
+
+export default User
+
+
+
+
+
+=======================================================
+====================== Next one is ====================
+
+
+import React from "react";
+import {Button} from "react-bootstrap"
+
+
+function User(){
+    // const student =["sachin",'Mobile','email']
+    
+    const student = [
+        {
+            name:"sachin",
+            email:"sachin.pawar780@gmail.com",
+            mobile:"7620860053"
+        }
+    ]
+    return(
+        <div>
+            <h1>Sachin</h1>
+            
+            {
+                student.map((data)=>
+                <h1>My Name Is {data.name},{data.email}</h1>
+                )
+            }
+        </div>
+    )
+}
+
+
+export default User

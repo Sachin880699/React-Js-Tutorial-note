@@ -1,0 +1,43 @@
+=========== user.js ============
+
+
+import React, { useEffect, useState } from "react";
+import {withRouter} from "react-router-dom"
+
+
+function User(){
+    const [data , setData] = useState([])
+    useEffect(()=>{
+        fetch("http://192.168.43.79:8000/Student_List").then((result)=>
+    result.json().then((resp)=>{
+        console.warn(resp.student)
+        setData(resp.student)
+    })
+    )
+    },[])
+    console.warn(data)
+    return(
+        <div>
+            <table border="1px;">
+                <tr>
+                    <td>ID</td>
+                    <td>First Name</td>
+                    <td>Last Name</td>
+                </tr>
+                {
+                    data.map((item)=>
+                    <tr>
+                    <td>{item.id}</td>
+                    <td>{item.first_name}</td>
+                    <td>{item.last_name}</td>
+                </tr>
+                    
+                    )
+                }
+            </table>
+        </div>
+    )
+}
+
+
+export default User

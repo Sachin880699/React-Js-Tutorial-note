@@ -1,0 +1,27 @@
+import React from "react";
+
+class User extends React.Component{
+    upload(e){
+        console.warn(e.target.files)
+        const files = e.target.files
+        const formData = new FormData();
+        formData.append("image",files[0])
+        fetch("http://localhost:8000/UploadImage",{
+            method : "POST",
+            body:formData
+        }).then((resp)=>{
+            resp.json().then((result)=>{
+                console.warn("result",result)
+            })
+        })
+    }
+    render()
+    {
+        return(
+            <div>
+               <input type="file" onChange={(e)=>this.upload(e)} />
+            </div>
+        )
+    }
+}
+export default User

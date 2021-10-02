@@ -1,0 +1,46 @@
+============= Header.js ========
+
+
+import React from 'react';
+import { Jumbotron, Container , Button } from 'reactstrap';
+
+const Home = (props) => {
+  return (
+    <div>
+      <Jumbotron className="text-center" style={{backgroundColor:"gray"}}>
+        <h1 className="display-3">Hello, world!</h1>
+        <p className="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
+        <Container>
+            <Button color="primary">Start Using My</Button>
+        </Container>
+        <br></br>
+      </Jumbotron>
+    </div>
+  );
+};
+
+export default Home
+
+
+================= App.js ==========
+
+import logo from './logo.svg';
+import './App.css';
+import { Button } from 'reactstrap';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Home from "./components/Home"
+
+function App() {
+  const btnHandle = () => toast.success("This is my frst message !");
+  return (
+    <div >
+<ToastContainer/>
+<Home/>
+
+    </div>
+  );
+}
+
+export default App;
+

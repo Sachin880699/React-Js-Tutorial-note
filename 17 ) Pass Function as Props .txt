@@ -1,0 +1,40 @@
+============ User.js =========
+
+import React from "react";
+
+function User(props) {
+    return (
+        <div className="App">
+            <h1>user component</h1>
+            <button onClick={() => props.data()}>Call Data Function</button>
+        </div>
+    )
+}
+
+
+export default User
+
+
+
+======== App.js==========
+
+
+
+import './App.css';
+import User from "./component/User"
+function App() {
+  
+  function getData(){
+    alert("Hello From App")
+  }
+
+  return (
+    <div className="App">
+    <User data={getData}/>
+      
+    </div>
+  );
+}
+
+export default App;
+
