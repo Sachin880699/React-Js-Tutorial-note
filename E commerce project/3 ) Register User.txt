@@ -1,0 +1,45 @@
+import React, { useState } from "react";
+import Header from "./Header"
+import {useHistory} from "react-router-dom"
+
+
+function Register(){
+
+    const [name , setName] = useState("")
+    const [password , setPassword] = useState("")
+    const [email , setEmail] = useState("")
+    const history = useHistory()
+
+   async function SignUp() {
+        let item= {name , password , email}
+        console.warn(item)
+        let result = await fetch("http://192.168.43.79:8000/RegisterStudent",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json",
+                "Accept":"application/json"
+            },
+            body:JSON.stringify(item)
+        });
+        result = await result.json;
+        console.warn(result,'+++++++++++++')
+        localStorage.setItem("user-info",JSON.stringify({name , email}));  // ==== store data in local storage
+        history.push("/add")  // =========== dusrya page var redirect sathi
+    }
+
+    return(
+        <>
+        <Header/>
+        <div className="col-sm-6 offset-sm-3">
+        
+            <h1>User Register</h1>
+            <input type="text" value={name} onChange={(e)=>setName(e.target.value)} className="form-control" /><br/>
+            <input type="text" value={password} onChange={(e)=>setPassword(e.target.value)} className="form-control" /><br/>
+            <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} className="form-control" /><br/>
+            <button onClick={SignUp} className="btn btn-primary">Sign Up</button>
+            
+        </div>
+        </>
+    )
+}
+export default Register

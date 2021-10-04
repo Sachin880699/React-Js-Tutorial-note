@@ -1,0 +1,36 @@
+===================SearchProduct.js ==========
+
+import Header from "./Header"
+import React, { useState } from "react"
+
+function SearchProduct(){
+    
+
+    
+
+    return(
+        <>
+        <Header/>
+        <div className="col-sm-6 offset-sm-3">
+            <h1>Search Product</h1>
+            <input type="text" placeholder="Search Product" className="form-control" />
+        </div>
+        </>
+    )
+}
+export default SearchProduct
+
+
+
+
+============ Header.js =================
+
+<Link to="/search">Search Product</Link>
+
+
+
+======= App.js ==========
+
+<Route path="/search" > 
+     <Protected Cmp={SearchProduct}/>
+     </Route>

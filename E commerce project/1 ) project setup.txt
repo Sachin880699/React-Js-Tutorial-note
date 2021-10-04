@@ -1,0 +1,7 @@
+1 ) create-react-app e-comm
+
+2 ) install react bootstrap
+
+3 ) npm install react-router-dom
+
+

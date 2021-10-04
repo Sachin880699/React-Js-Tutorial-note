@@ -1,0 +1,110 @@
+=================== Login.js ===========
+
+function Login(){
+    return(
+        <div>
+            <h1>Login</h1>
+        </div>
+    )
+}
+export default Login
+
+=================== Header.js ============
+import {Navbar , Nav , Container} from "react-bootstrap"
+import {BrowserRouter as Router , Link , Route , Switch} from "react-router-dom"
+
+
+function Header(){
+    return(
+        <div>
+            <Navbar bg="dark" variant="dark">
+    <Container>
+    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+    <Nav className="me-auto nav_bar_wrapper">
+      <Link to="/add">Ad Product</Link>
+      <Link to="/update">Update Product</Link>
+      <Link to="/login">Login</Link>
+      <Link to="/register">Register</Link>
+
+
+    </Nav>
+    </Container>
+  </Navbar>
+        </div>
+    )
+}
+export default Header
+
+
+================== Register.js ==============
+
+function Register(){
+    return(
+        <div>
+            <h1>Register</h1>
+        </div>
+    )
+}
+export default Register
+
+
+
+================ UpdateProduct.js ========
+
+function UpdateProduct(){
+    return(
+        <div>
+            <h1>Update Product</h1>
+        </div>
+    )
+}
+export default UpdateProduct
+
+============= AddProduct.js ============
+
+function AddProduct(){
+    return(
+        <div>
+            <h1>Add Product</h1>
+        </div>
+    )
+}
+export default AddProduct
+
+
+================= App.js =============
+
+import logo from './logo.svg';
+import './App.css';
+import React, { useState } from 'react';
+import {BrowserRouter, BrowserRouter as Router , Link , Route , Switch} from "react-router-dom"
+import Button from 'react-bootstrap/Button';
+import Header from "./Header"
+
+import Login from "./Login"
+import Register from "./Register"
+import UpdateProduct from "./UpdateProduct"
+import AddProduct from "./AddProduct"
+
+
+function App() {
+
+
+  return (
+    <div className="App">
+    <BrowserRouter>
+    <Header/>
+    <h1>E-Comm Project</h1>
+    <Route path="/login" ><Login/> </Route>
+    <Route path="/register" > <Register/> </Route>
+    <Route path="/add" > <AddProduct/> </Route>
+    <Route path="/update" >  <UpdateProduct/> </Route>
+    </BrowserRouter>
+    </div>
+  );
+}
+
+
+
+export default App;
+

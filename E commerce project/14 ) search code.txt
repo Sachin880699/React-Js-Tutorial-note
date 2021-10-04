@@ -1,0 +1,80 @@
+===================SearchProduct.js ==========
+
+import Header from "./Header"
+import React, { useState } from "react"
+import {Table} from "react-bootstrap"
+
+function SearchProduct(){
+    const [searchdata , setSearch] = useState("")
+    const [data , setStudentData] = useState([])
+    
+
+    function search() {
+        alert(searchdata)
+        fetch("http://192.168.43.79:8000/SearchStudentData",{
+            method:"POST",
+            headers:{
+                "Accept":"application/json",
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({searchdata})
+        }).then((result)=>{
+            // console.warn(result)
+            result.json().then((resp)=>{
+                console.warn(resp)
+                setStudentData(resp.student)
+
+            })
+        })
+        
+        
+    }
+
+
+    return(
+        <>
+        <Header/>
+        <div className="col-sm-6 offset-sm-3">
+            <h1>Search Product</h1>
+            <input type="text" onChange={(e)=>setSearch(e.target.value)} placeholder="Search Product" className="form-control" />
+            <button onClick={search} className="btn btn-primary">Search</button>
+<br/>
+<br/>
+            <Table striped bordered hover>
+  <thead>
+    <tr>
+
+      <th>ID</th>
+      <th>Name</th>
+      <th>Image</th>
+        <th>Price</th>
+      <th>Description</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {
+        data.map((res)=>
+        
+        
+        <tr>
+      <td>{res.id}</td>
+      <td>{res.name}</td>
+      <td><img src={res.file_data} height="100px;" width="100px;" />  </td>
+      <td>{res.price}</td>
+      <td>{res.description}</td>
+      <td><button  className="btn btn-danger">Delete</button>
+    {/* <Link to={"/update/"+res.id} ><button  className="btn btn-warning">Update</button></Link> */}
+      
+       </td>
+    </tr>
+        )
+    }
+   
+  </tbody>
+</Table>
+        </div>
+        </>
+    )
+}
+export default SearchProduct

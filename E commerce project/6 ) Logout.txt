@@ -1,0 +1,39 @@
+=========== Header.js ================
+
+import { BrowserRouter as Router, Link, Route, Switch, useHistory } from "react-router-dom"
+
+
+const history = useHistory()
+
+
+
+function logout() {
+    localStorage.clear()
+    history.push("./register")
+  }
+
+
+
+
+
+
+====== nav chya khali ======
+
+
+{
+            localStorage.getItem("user-info") ?
+              
+                <Nav>
+                  <NavDropdown title={user_name.name}>
+                    <NavDropdown.Item>Profile</NavDropdown.Item>
+                    <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
+                  </NavDropdown>
+                </Nav>
+             : null
+
+
+          }
+
+
+
+

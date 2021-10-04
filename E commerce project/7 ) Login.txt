@@ -1,0 +1,56 @@
+============== Login.js =========
+
+
+import {useHistory} from "react-router-dom"
+
+
+const history = useHistory()
+
+
+
+
+
+
+ async function login() {
+
+        console.warn(name , password)
+        let item = {name  , password}
+
+        let result = await fetch("http://192.168.43.79:8000/Login",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json",
+                "Accept":"application/json"
+            },
+            body:JSON.stringify(item)
+        })
+        result = await result.json();
+        localStorage.setItem("user-info",JSON.stringify({name}));
+        history.push("./add")
+        
+        
+    }
+
+
+
+
+
+
+
+
+
+
+  return(
+        <>
+        <Header/> 
+        <div className="col-sm-6 offset-sm-3">
+            <h1>Login</h1>
+        
+        <input type="text" className="form-control" placeholder="username" onChange={(e)=>setName(e.target.value)} /><br/><br/>
+        <input type="text" className="form-control" placeholder="Password" onChange={(e)=>setPassword(e.target.value)} /><br/><br/>
+        <button class="btn btn-primary" onClick={login}>Login</button>
+        </div>
+        </>
+    )
+}
+export default Login

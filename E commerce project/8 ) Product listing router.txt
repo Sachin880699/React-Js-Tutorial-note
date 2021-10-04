@@ -1,0 +1,53 @@
+=================== ProductList.js ===============
+import Header from "./Header"
+
+function ProductList() {
+    return(
+        <>
+        <Header/>
+        <div>
+        <h1>Product List</h1>
+        </div>
+        </>
+    )
+}
+
+export default ProductList
+
+
+
+
+================= App.js ===============
+browser chay khali switch use karaych ani end chya adhi
+
+
+import {BrowserRouter, BrowserRouter as Router , Link , Route , Switch} from "react-router-dom"  // ===== import only switch
+import ProductList from './ProductList';
+
+
+
+
+
+<Switch>
+
+</Switch>
+
+
+<Route path="/" ><ProductList/> </Route>   //============ saglya route chya last la add jaraych
+
+
+
+
+
+
+
+=============== Header.js =============
+
+
+<Link to="/">Product List</Link>
+
+
+
+
+
+

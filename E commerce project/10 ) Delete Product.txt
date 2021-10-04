@@ -1,0 +1,27 @@
+=================== ProductList.js ========
+
+function deletestudent(delete_student) {
+
+        fetch("http://192.168.43.79:8000/DeleteStudentData",{
+            method:"DELETE",
+            headers:{
+                "Accept":"application/json",
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({delete_student})
+        }).then((result)=>{
+            // console.warn(result)
+            result.json().then((resp)=>{
+                console.warn(resp)
+            })
+        })
+        
+        
+    }
+
+
+
+
+
+<button onClick={()=>deletestudent(res.id)} className="btn btn-danger">Delete</button>
+

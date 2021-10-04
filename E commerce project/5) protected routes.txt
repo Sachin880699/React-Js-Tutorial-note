@@ -1,0 +1,226 @@
+Header la pratech page var import kara
+
+jar user login asel tar tyala login ani register page dakhau naka
+
+================== Header.js ====
+
+
+import {Navbar , Nav , Container} from "react-bootstrap"
+import {BrowserRouter as Router , Link , Route , Switch} from "react-router-dom"
+
+
+function Header(){
+    return(
+        <div>
+            <Navbar bg="dark" variant="dark">
+    <Container>
+    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+    <Nav className="me-auto nav_bar_wrapper">
+
+
+//=============== ithun te=============
+    {
+      localStorage.getItem("user-info") ?
+      <>
+      <Link to="/add">Ad Product</Link>
+      <Link to="/update">Update Product</Link>
+      </>
+      :
+      <>
+
+      <Link to="/login">Login</Link>
+      <Link to="/register">Register</Link>
+      </>
+    }
+
+//================= ithparyant==============
+     
+
+
+    </Nav>
+    </Container>
+  </Navbar>
+        </div>
+    )
+}
+export default Header
+
+
+========================== Register.js =================
+
+import React, { useEffect, useState } from "react";
+import Header from "./Header"
+import {useHistory} from "react-router-dom"   // ======== He ak
+
+
+function Register(){
+
+//========================ith pause te ==========
+
+    {
+        useEffect(()=>{
+                if(localStorage.getItem("user-info"))
+                {
+                    history.push("./add")
+                }
+        },[])
+    }
+
+// =====================ithparyant ==========
+
+
+    const [name , setName] = useState("")
+    const [password , setPassword] = useState("")
+    const [email , setEmail] = useState("")
+    const history = useHistory()             //===================he ak
+
+   async function SignUp() {
+        let item= {name , password , email}
+        console.warn(item)
+        let result = await fetch("http://192.168.43.79:8000/RegisterStudent",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json",
+                "Accept":"application/json"
+            },
+            body:JSON.stringify(item)
+        });
+        result = await result.json;
+        console.warn(result,'+++++++++++++')
+        localStorage.setItem("user-info",JSON.stringify({name , email}));  // ==== store data in local storage
+        history.push("/add")  // =========== dusrya page var redirect sathi
+    }
+
+    return(
+        <>
+        <Header/>
+        <div className="col-sm-6 offset-sm-3">
+        
+            <h1>User Register</h1>
+            <input type="text" value={name} onChange={(e)=>setName(e.target.value)} className="form-control" /><br/>
+            <input type="text" value={password} onChange={(e)=>setPassword(e.target.value)} className="form-control" /><br/>
+            <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} className="form-control" /><br/>
+            <button onClick={SignUp} className="btn btn-primary">Sign Up</button>
+            
+        </div>
+        </>
+    )
+}
+export default Register
+
+
+
+==================---------------------------============APP.js ===========
+
+
+
+
+import logo from './logo.svg';
+import './App.css';
+import React, { useState } from 'react';
+import {BrowserRouter, BrowserRouter as Router , Link , Route , Switch} from "react-router-dom"
+import Button from 'react-bootstrap/Button';
+
+
+import Login from "./Login"
+import Register from "./Register"
+import UpdateProduct from "./UpdateProduct"
+import AddProduct from "./AddProduct"
+
+import Protected from "./Protected"
+
+function App() {
+
+
+  return (
+    <div className="App">
+    <BrowserRouter>
+    
+    <Route path="/login" ><Login/> </Route>
+    <Route path="/register" > <Register/> </Route>
+    <Route path="/add" > 
+
+    <Protected Cmp={AddProduct}/>
+    
+     </Route>
+    <Route path="/update" > 
+
+
+
+     <Protected Cmp={UpdateProduct}/>
+     
+     </Route>
+    </BrowserRouter>
+    </div>
+  );
+}
+
+
+
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+======================== ==================================================
+======================== ==================================================
+
+
+pan jar user login nasel ani jar to add update wala page access try karat asetl tar tyala register page var ghtun jail
+
+
+
+
+
+============== Protected.js ==============================
+
+
+import Header from "./Header"
+import React, { useEffect, useState } from "react";
+import {useHistory} from "react-router-dom"
+
+
+function Login(props){
+
+    let Cmp = props.Cmp
+    
+        const history = useHistory()
+        useEffect(()=>{
+                if(!localStorage.getItem("user-info"))
+                {
+                    history.push("./register")
+                }
+        },[])
+    
+
+
+    return(
+        <>
+ 
+        <div>
+        <Cmp/>
+        </div>
+        </>
+    )
+}
+export default Login
+
+
