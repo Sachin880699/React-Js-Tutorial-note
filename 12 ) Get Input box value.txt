@@ -1,4 +1,4 @@
-============ Student.js==========
+============ Student.js==============
 
 import React, { useState } from "react";
 
