@@ -1,0 +1,50 @@
+import React ,{useState} from 'react';
+
+const Testing = () => {
+    const [source_currency, setsource_currency] = useState("INR");
+  const [target_currency, settarget_currency] = useState("USD");
+  const [amount, setamount] = useState("40");
+  const [message, setMessage] = useState("");
+
+  
+    let handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+          let res = await fetch("http://192.168.1.121:8000/api/currency_converter/", {
+            method: "POST",
+            headers : { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization':"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQyMDY1MDA2LCJqdGkiOiJjMzljNDU2Njc5MjY0N2Q0YTY4MzAzNTRhMDA0YjBmMSIsInVzZXJfaWQiOjF9.kLAcbKlULXrzq4jfmtLQpuxF4JwmQA774gA6B3WricQ"
+               },
+            body: JSON.stringify({
+                source_currency: source_currency,
+                target_currency: target_currency,
+                amount: amount,
+            }),
+          });
+          let resJson = await res.json();
+          console.log(resJson)
+          if (res.status === 200) {
+            
+            setMessage("User created successfully");
+            console.log(res)
+          } else {
+            setMessage("Some error occured");
+            console.log("Error")
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      };
+
+
+    return (
+        <div>
+            <button onClick={handleSubmit}>CLICK</button>
+            
+        </div>
+    );
+}
+
+export default Testing;
